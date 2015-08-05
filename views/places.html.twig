@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel="stylesheet" href="css/styles.css">
     <title>Locations visited</title>
 </head>
 <body>
@@ -8,14 +9,20 @@
         <p>Here are the places I've visited:</p>
         <ul>
             {% for place in places %}
-                <li>{{ place.getLocation }}</li>
+                <li>Place: {{ place.getLocation }}</li>
+                <li>Time spent: {{ place.getHowlong }}</li>
+                <li><img src='{{ place.getImage }}'</li>
             {% endfor %}
         </ul>
 
     {% endif %}
     <form action='/places' method='post'>
         <label for='location'>Location</label>
-        <input id='location' name='location' type='text'>
+        <input id='location' name='location' type='text'> </br>
+        <label for='howlong'>How long were you there?</label>
+        <input id='howlong' name='howlong' type='text'> </br>
+        <label for='image'>Image URL</label>
+        <input id='image' name='image' type='text'>
 
         <button type='submit'>Add task</button>
     </form>
